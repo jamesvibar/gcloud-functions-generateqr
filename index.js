@@ -21,7 +21,11 @@ app.post('/', async (req, res) => {
     res.status(400).json({ data: { error: 'Please enter a message' } })
   }
 
-  const stream = gcsFile.createWriteStream()
+  const stream = gcsFile.createWriteStream({
+    metadata: {
+      contentType: 'image/png',
+    },
+  })
 
   stream.on('error', err => {
     return res.status(500).json({ data: { error: err.message } })
