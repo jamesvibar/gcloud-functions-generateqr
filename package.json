@@ -1,0 +1,22 @@
+{
+  "name": "generateqr",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@google-cloud/storage": "^3.5.0",
+    "cors": "^2.8.5",
+    "data-uri-to-file": "^0.1.8",
+    "express": "^4.17.1",
+    "qrcode": "^1.4.2",
+    "shortid": "^2.2.15",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  },
+  "scripts": {
+    "dev": "nodemon index.js",
+    "deploy": "gcloud functions deploy generateqr --runtime nodejs10 --trigger-http --env-vars-file .env.yaml --region asia-east2"
+  }
+}
